@@ -48,11 +48,7 @@
         <img src="assets/img/profile-img.jpg" alt="" class="img-fluid rounded-circle">
         <h1 class="text-light"><a href="index.html">Ephraïm KOLO</a></h1>
         <div class="social-links mt-3 text-center">
-          <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-          <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-          <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-          <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-          <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+          <a href="https://www.linkedin.com/in/atchireephraimkolo" target="blank" class="linkedin"><i class="bx bxl-linkedin"></i></a>
         </div>
       </div>
 
@@ -154,16 +150,166 @@
 
           <p> <i>Pour valider le circuit de décharge, nous tenterons de décharger une capacité ayant une tension initiale de 12V.</i></p>
 
-          <img src="assets/img/portfolio/portfolio-details-5.jpg" class="img-fluid" alt="">
+          <div style="text-align: center">
+            <img src="assets/img/portfolio/portfolio-details-5.jpg" class="img-fluid" alt="">
+         </div>
+          
 
           <p>Dans notre cas, on souhaite décharger notre capacité à courant constant (soit 1A par exemple). L'interrupteur sert à isoler le circuit de décharge du DUT lorsque la décharge/la charge est terminée ou lorsque le DUT est en charge.
             Il nous a ainsi fallu une source de courant constant, sensible à la tension présente à la sortie du module d'automatisation qui est sensée piloter l'etage push-pull. D'autre part, avoir un courant qui s'annule après la décharge serait souhaitable. Pour satisfaire ces conditions, nous utilisons un MOSFET canal N qui se comporte comme une source de courant commandée en tension tant qu’on se trouve en zone saturée. Nous avons utilisé le IRFZ44V qui est une bonne source de courant pour une tension V<sub>DS</sub> supérieur à 1V</sub>.
           </p>
 
-          <p>JUSTE POUR TESTER</p>
-          <img src="assets/img/portfolio/portfolio-details-6.jpg" class="img-fluid" alt="">
+          <p>Nous devons nous assurer que la tension V<sub>GS</sub> soit supérieur à 2V (voire 4.5V). Pour cela, on utilise un comparateur qui compare la tension aux bornes de la résistance R<sub>1</sub> (tension de 1V) à une tension de référence.D’autre part, la tension de grille ne doit pas être trop grande, aﬁn de maintenir le courant constant pour les plus faibles valeurs de V<sub>DS</sub> (La plus petite valeur de V<sub>GS</sub> correspond à 4.5 V selon la datasheet).</p>
+         
+          <div style="text-align: center">
+            <img src="assets/img/portfolio/portfolio-details-6.jpg" class="img-fluid" alt="">
+         </div>
+          
+         
+
+          <p>
+             Enfin un module d'automatisation est nécessaire.
+          </p>
+
 
         </div>
+
+        <div class="portfolio-description">
+          <h2> <center> <u> <b> Circuit de décharge sous Proteus </b> </u> </center> </h2>
+          
+          <div style="text-align: center">
+            <img src="assets/img/portfolio/portfolio-details-7.jpg" class="img-fluid" alt="">
+         </div>
+          
+
+        </div>
+
+        <div class="portfolio-description">
+            <h2> <center> <u> <b> Simulation temporelle </b> </u> </center> </h2> 
+
+          <div style="text-align: center">
+            <img src="assets/img/portfolio/portfolio-details-8.jpg" class="img-fluid" alt="">
+         </div>
+         <p>On obtient un courant de 2 Ampères pour une tension de reférence de 2 Volts, et une belle décroissance de la tension aux bores du DUT.
+          Dans la suite du projet, nous avons preféré une tenion de référence de 1V pour obtenir un courant constant de 1A. Ce choix nous permet de limiter la dissipation d'énergie.</p>
+        </div>
+
+        <div class="portfolio-description">
+          <h2> <center> <u> <b>   Charge à courant constant </b> </u> </center> </h2> 
+
+        <div style="text-align: center">
+          <img src="assets/img/portfolio/portfolio-details-9.jpg" class="img-fluid" alt="">
+       </div>
+       <p>Une fois le circuit de décharge conçu et validé experimentalement, on a été vivement tenté de réaliser le circuit de charge en se basant sur une possible complémentarité charge/décharge. Le PMOS qu’on a utilisé est le IRF5305.D’après les données fournies par la datasheet de ce composant (ﬁgures 1 et 2), il suﬃt d’avoir une tension V<sub>DS</sub> supérieure à 1V pour avoir les propriétés attendues.</p>
+
+       <p>Le courant est constant et égal à 1 Ampère tant que la tension aux bornes de la capacité est suﬃsante pour qu’on reste en régime saturé. La tension V<sub>DS</sub> passe de -11V à -1V, puis on observe une décroissance lente du courant jusqu’à son annulation.
+        La tension de référence varie entre 11 Volts et 12 Volts pour avoir en sortie du comparateur une tension de grille inférieur à -5 Volts.</p>
+
+        <p>Ce circuit de charge a été également validé par simulation sous proteus. Le DUT se charge lorsque la tension de référence vaut 11V. Le courant de drain est nul lorsque la tension de référence vaut 12 Volts.</p>
+
+        <div class="portfolio-description">
+          <h2> <center> <u> <b>   Complémentarité des deux circuits </b> </u> </center> </h2> 
+
+        <div style="text-align: center">
+          <img src="assets/img/portfolio/portfolio-details-10.jpg" class="img-fluid" alt="">
+       </div>
+       <p>Rappelons les conﬁgurations des deux circuits en fonction des tensions de référence: </p>
+       <p>Coté PMOS :</p>
+       <p>12 V → Repos (courant de drain nul ou interrupteur ouvert).</p>
+       <p>11V → Charge à 1A.</p>
+       <p>Coté NMOS :</p>
+       <p>0 V → Repos (courant de drain nul ou interrupteur ouvert).</p>
+       <p>1V → décharge à 1A.</p>
+
+       <figure>
+
+        <img src="assets/img/portfolio/portfolio-details-11.jpg" class="img-fluid" alt="">
+
+        <figcaption>Par exemple du mode charge (tension de référence de 11V pour le PMOS et 0 V pour le NMOS</figcaption>
+       </figure>
+
+
+      <div class="portfolio-description">
+      <h2> <center> <u> <b> Automatisation du montage </b> </u> </center> </h2> 
+
+      <center> <u> <b> La décharge </b> </u> </center>
+      
+      <p> </p>
+      <p>Pour rendre la décharge automatique, il faut :</p>
+
+      <p>- D'une part, nous assurer que la tension de référence vaut 0 Volt lorsqu'on ne veut plus décharger le DUT, et 1V lorsqu'on veut le charger.</p>
+      <p>- D'autre part, que la décharge s'arrête lorsque la tension aux bornes du DUT vaut celle de la consigne.</p> 
+      
+      <p>- Un pont diviseur de tension permet d'adapter la tension en sortie du comparateur.</p>
+      <p>- Le comparateur en amont compare la tension de consigne à la tension de sortie.</p>
+      
+      <figure>
+
+        <img src="assets/img/portfolio/portfolio-details-12.jpg" class="img-fluid" alt="">
+
+        <figcaption>La tension de référence vaut bien 1 lorsque La tension de sortie est sup´erieur de la tension de consigne (d´echarge) et 0 lorsque la tension de sortie vaut la tension de consigne.</figcaption>
+       </figure>
+
+       <center> <u> <b> La charge </b> </u> </center>
+      
+       <p> </p>
+       <p>Pour l'automatisation du module charge :</p>
+ 
+       <p>- La tension Vref vaudra 0 Volt lorsqu'on ne veut plus décharger le DUT, et 1 Volt lorsqu'on veut le charger.      </p>
+       <p>- D'autre part, la charge s’arrête lorsque la tension aux bornes du DUT vaut celle de la consigne.</p> 
+       
+       <p>- L’automatisation du module charge est plus délicat, du fait de sa complémentarité avec le module de décharge. Les tensions de référence des modules charges et décharges sont dépendantes :</p>
+       
+       <p>V<sub>ref</sub> (charge) = 11 V quand V<sub>ref</sub> (décharge) = 0V</p>
+       <p>V<sub>ref</sub> (charge) = 12 V quand V<sub>ref</sub> (décharge) = 1 V</p>
+       
+       <figure>
+ 
+         <img src="assets/img/portfolio/portfolio-details-14.jpg" class="img-fluid" alt="">
+ 
+         <figcaption>L’inversion a nécessité la synthèse d’une porte inverseuse en technologie CMOS. Un pont diviseur de tension a permis de réaliser l’adaptaion (0-12 V → 0-1 V). Enfin, Le montage soustracteur est réalisé avec un AOP.  </figcaption>
+        </figure>
+        
+        <figure>
+
+          <img src="assets/img/portfolio/portfolio-details-13.jpg" class="img-fluid" alt="">
+  
+         </figure>
+       
+
+      </div>
+
+      <div class="portfolio-description">
+        <h2> <center> <u> <b> SIMULATION du CIRCUIT GLOBAL </b> </u> </center> </h2>
+        
+        <figure>
+          <img src="assets/img/portfolio/portfolio-details-15.jpg" class="img-fluid" alt="">
+        
+          <figcaption> Pour une consigne de 8.04V, avec une tension initiale de 0V, le condensateur se charge se charge.</figcaption>
+        </figure>
+
+
+        <figure>
+          <img src="assets/img/portfolio/portfolio-details-16.jpg" class="img-fluid" alt="">
+        
+          <figcaption> Résultat identique avec une tension de consigne de 10V.</figcaption>
+        </figure>
+
+        <figure>
+          <img src="assets/img/portfolio/portfolio-details-17.jpg" class="img-fluid" alt="">
+        
+          <figcaption> Avec la même tension de consigne, le condensateur étant initialement chargé à 12V, on observe une décharge jusq’à 10V.</figcaption>
+        </figure>
+
+        <figure>
+          <img src="assets/img/portfolio/portfolio-details-18.jpg" class="img-fluid" alt="">
+        
+          <figcaption> Avec une tension de consigne de 3.6 Volts (assez petite)</figcaption>
+        </figure>
+
+
+      </div>
+
 
       </div>
     </section><!-- End Portfolio Details Section -->
