@@ -119,7 +119,7 @@
           </p>
 
           <p>
-            •	L’utilisation de l’étage push-pull sera particulière. Ici, on ne considère pas deux état (charge ou décharge). Pour assurer la protection des composants dissipant assez de chaleur, il est nécessaire de prévoir une fonction sécurité (les deux interrupteurs ouverts) dans le cas où on achève l’opération.
+            •	L’utilisation de l’étage push-pull sera particulière. Ici, les états "charge" et "décharge" ne sont pas les unique états à considérer. En effet, pour assurer la protection des composants dissipant assez de chaleur, il est nécessaire de prévoir une fonction sécurité (les deux interrupteurs ouverts) dans le cas où on achève l’opération.
           </p>
 
           <p>
@@ -131,11 +131,11 @@
           </p>
 
           <p>
-            •	L'interrupteur(Switch) SW3 : Il permet d'assurer la protection de l'accumulateur à utiliser. Il pourrait soit s'agir d'un vrai interrupteur commandé en tension ou d'une propriété du circuit permettant d'avoir un courant nul lorsque l'opération (de charge ou décharge) s'arrê†e.
+            •	L'interrupteur (Switch) SW3 : Il permet d'assurer la protection de l'accumulateur à utiliser. Il pourrait soit s'agir d'un vrai interrupteur commandé en tension ou d'une propriété du circuit permettant d'avoir un courant nul lorsque l'opération (de charge ou décharge) s'arrê†e.
           </p>
 
           <p>
-            •	Les interrupteurs SW2 et SW4 commandés en tension. Permettant d’avoir accès, soit à la charge, soit la décharge.
+            •	Les interrupteurs SW2 et SW4 commandés en tension permettent d’avoir accès, soit à la charge, soit la décharge.
           </p>
           
           <p>
@@ -190,8 +190,8 @@
           <div style="text-align: center">
             <img src="assets/img/portfolio/portfolio-details-8.jpg" class="img-fluid" alt="">
          </div>
-         <p>On obtient un courant de 2 Ampères pour une tension de reférence de 2 Volts, et une belle décroissance de la tension aux bores du DUT.
-          Dans la suite du projet, nous avons preféré une tenion de référence de 1V pour obtenir un courant constant de 1A. Ce choix nous permet de limiter la dissipation d'énergie.</p>
+         <p>On obtient un courant de 2 Ampères pour une tension de référence de 2 Volts, et une belle décroissance de la tension aux bornes du DUT.
+          Dans la suite du projet, nous avons préféré une tenion de référence de 1V pour obtenir un courant constant de 1A. Ce choix nous a permis de limiter la dissipation d'énergie.</p>
         </div>
 
         <div class="portfolio-description">
@@ -200,7 +200,7 @@
         <div style="text-align: center">
           <img src="assets/img/portfolio/portfolio-details-9.jpg" class="img-fluid" alt="">
        </div>
-       <p>Une fois le circuit de décharge conçu et validé experimentalement, on a été vivement tenté de réaliser le circuit de charge en se basant sur une possible complémentarité charge/décharge. Le PMOS qu’on a utilisé est le IRF5305.D’après les données fournies par la datasheet de ce composant (ﬁgures 1 et 2), il suﬃt d’avoir une tension V<sub>DS</sub> supérieure à 1V pour avoir les propriétés attendues.</p>
+       <p>Une fois le circuit de décharge conçu et validé experimentalement, on a été vivement tenté de réaliser le circuit de charge en se basant sur une possible complémentarité charge/décharge. Le PMOS qu’on a utilisé est le IRF5305. D’après les données fournies par la datasheet de ce composant (ﬁgures 1 et 2), il suﬃt d’avoir une tension V<sub>DS</sub> supérieure à 1V pour avoir les propriétés attendues.</p>
 
        <p>Le courant est constant et égal à 1 Ampère tant que la tension aux bornes de la capacité est suﬃsante pour qu’on reste en régime saturé. La tension V<sub>DS</sub> passe de -11V à -1V, puis on observe une décroissance lente du courant jusqu’à son annulation.
         La tension de référence varie entre 11 Volts et 12 Volts pour avoir en sortie du comparateur une tension de grille inférieur à -5 Volts.</p>
@@ -247,7 +247,7 @@
 
         <img src="assets/img/portfolio/portfolio-details-12.jpg" class="img-fluid" alt="">
 
-        <figcaption>La tension de référence vaut bien 1 lorsque La tension de sortie est sup´erieur de la tension de consigne (d´echarge) et 0 lorsque la tension de sortie vaut la tension de consigne.</figcaption>
+        <figcaption>La tension de référence vaut bien 1 lorsque La tension de sortie est supérieur de la tension de consigne (décharge) et 0 lorsque la tension de sortie vaut la tension de consigne.</figcaption>
        </figure>
 
        <center> <u> <b> La charge </b> </u> </center>
